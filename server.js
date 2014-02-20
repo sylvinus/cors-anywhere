@@ -4,7 +4,7 @@ var port = process.env.PORT || 8080;
 
 var cors_proxy = require('./lib/cors-anywhere');
 cors_proxy.createServer({
-    requireHeader: ['origin', 'x-requested-with'],
+    requireHeader: [],
     removeHeaders: [
         'cookie',
         'cookie2',
@@ -12,7 +12,10 @@ cors_proxy.createServer({
         'x-heroku-queue-wait-time',
         'x-heroku-queue-depth',
         'x-heroku-dynos-in-use',
-        'x-request-start'
+        'x-request-start',
+        'origin',
+        'x-requested-with',
+        'x-frame-options'
     ],
     httpProxyOptions: {
         enable: {
